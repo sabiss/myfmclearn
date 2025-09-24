@@ -13,9 +13,14 @@ theorem doubleneg_intro :
   intro pboom
   exact pboom hp
 
-theorem doubleneg_elim :
+theorem doubleneg_elim (P : Prop):
     ¬ ¬ P → P  := by
-  sorry
+  intro hdnp --hipotese dubla negação de p
+  by_cases h : P
+  exact h
+
+  have boom : False := hdnp h
+  contradiction
 
 theorem doubleneg_law :
     ¬ ¬ P ↔ P  := by
